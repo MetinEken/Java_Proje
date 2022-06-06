@@ -74,7 +74,7 @@ public class Islemler {
 		}
 	}
 
-	private void arama() {
+	public void arama() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("aramak istediginiz kimlikNo giriniz");
 		String kNo=scan.next();
@@ -89,7 +89,7 @@ public class Islemler {
 		
 	}
 
-	private void kisiAra(String kNo, List<Kisi> liste) {
+	public void kisiAra(String kNo, List<Kisi> liste) {
 		int count=1;
 		
 		for (Kisi x : liste) {
@@ -106,7 +106,7 @@ public class Islemler {
 		
 	}
 
-	private void silme() {
+	public void silme() {
 		Scanner scan = new Scanner(System.in);
 		
 		
@@ -124,7 +124,7 @@ public class Islemler {
 		
 	}
 
-	private void kisiSil(String kNo, List<Kisi> liste) {
+	public void kisiSil(String kNo, List<Kisi> liste) {
 		int count=0;
 		int temp;
 		String flag="yok";
@@ -139,7 +139,8 @@ public class Islemler {
 		
 		if (flag.equals("var")) {
 			temp=count;
-			
+			// ogrenci ve ogretmeen list leri ArrayList oldugu icin degistirilemiyor
+			// bunun icin listeler collection lardan olusmalidir
 			
 		}else {
 			System.out.println("KISI BULUNAMAMISTIR");
@@ -148,7 +149,7 @@ public class Islemler {
 		islem();
 	}
 
-	private void listele() {
+	public void listele() {
 		List<Kisi> liste;
 		
 		if (kisiTuru.equals("OGRENCI")) {
@@ -160,10 +161,11 @@ public class Islemler {
 		for (Kisi x : liste) {
 			System.out.println(x);
 		}
+		islem();
 		
 	}
 
-	private void ekle() {
+	public void ekle() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("----- "+kisiTuru+" EKLEME SAYFASI------");
 		System.out.println("AD-SOYAD GIRINIZ");
@@ -186,7 +188,7 @@ public class Islemler {
 			String sicilNo=scan.next();
 			System.out.println("BOLUM GIRINIZ");
 			String bolum=scan.next();
-			Ogrenci ogrtm= new Ogrenci(adSoyad, kimlikNo, yas, bolum, sicilNo);
+			Ogretmen ogrtm= new Ogretmen(adSoyad, kimlikNo, yas, bolum, sicilNo);
 			ogretmenListesi.add(ogrtm);
 			
 			islem();
